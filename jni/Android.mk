@@ -5,7 +5,6 @@ TOP_PATH := $(call my-dir)/..
 ###########
 
 LOCAL_PATH := $(TOP_PATH)/proxmark3
-
 LOCAL_MODULE := liblua
 include $(CLEAR_VARS)
  
@@ -102,7 +101,7 @@ include $(CLEAR_VARS)
 LOCAL_STATIC_LIBRARIES := libtermcap libreadline liblua
 
 LOCAL_CFLAGS := -std=c99 -DCMIN=1 -DCTIME=0 -fPIE
-LOCAL_LDFLAGS += -fPIE -pie
+LOCAL_LDFLAGS += -fPIE -pie -static -Wl,--dynamic-linker=/system/bin/linker
 
 LOCAL_C_INCLUDES := \
 $(LOCAL_PATH)/include \
