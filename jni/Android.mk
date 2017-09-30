@@ -109,15 +109,13 @@ $(LOCAL_PATH)/common \
 $(LOCAL_PATH)/client \
 $(TOP_PATH)/ \
 $(TOP_PATH)/libusb \
-$(TOP_PATH)/proxmark3/common/polarssl \
 $(TOP_PATH)/proxmark3/liblua \
 $(TOP_PATH)/proxmark3/client/hid-flasher
 
 LOCAL_SRC_FILES := \
-common/polarssl/des.c \
-common/polarssl/aes.c \
-common/crapto1/crapto1.c \
-common/crapto1/crypto1.c \
+client/nonce2key/crapto1.c \
+client/nonce2key/crypto1.c \
+client/nonce2key/nonce2key.c \
 common/crc16.c \
 common/iso14443crc.c \
 common/iso15693tools.c \
@@ -127,10 +125,12 @@ common/sha1.c \
 common/crc64.c \
 common/protocols.c \
 client/loclass/elite_crack.c \
+client/loclass/des.c \
 client/loclass/fileutils.c \
 client/loclass/cipherutils.c \
 client/loclass/ikeys.c \
 client/loclass/cipher.c \
+client/aes.c \
 client/cmddata.c \
 client/cmdhf.c \
 client/cmdhf14a.c \
@@ -158,8 +158,7 @@ client/cmdparser.c \
 client/cmdscript.c \
 client/data.c \
 client/graph.c \
-client/guidummy.cpp \
-#client/guidummy.c \
+client/guidummy.c \
 client/mifarehost.c \
 client/pm3_binlib.c \
 client/pm3_bitlib.c \
